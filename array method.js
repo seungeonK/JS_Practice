@@ -1,5 +1,9 @@
 // array API
 
+
+// Array.pprototype.splice()
+// splice() -> mutate the original array.
+// 
 // Q1. make a string out of an array
 {
     const fruits = ['apple', 'banana', 'orange'];
@@ -46,6 +50,11 @@
   
   // Q5. find a student with the score 90
   {
+      const studentNinety = students.find((student, index) => {
+          console.log(student, index);
+          return student.score === 90;
+      })
+      console.log(studentNinety);
   }
   
   // Q6. make an array of enrolled students
