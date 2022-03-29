@@ -1,6 +1,4 @@
-# JS_Practice
-
-## 11/29/2021
+# 11/29/2021
 
 * `Array.prototype.join()`
 * `Array.prototype.split()`
@@ -11,7 +9,7 @@
 * `Array.prototype.splice()`
   * This method **mutates** the original array
 
-## 03/28/2022
+# 03/28/2022
 
 ### Getting HTML DOM element
 
