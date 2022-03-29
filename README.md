@@ -1,15 +1,30 @@
-# 11/29/2021
-
-* `Array.prototype.join()`
-* `Array.prototype.split()`
-* `Array.prototype.reverse()`
-* `Array.prototype.slice()`
+## Array methods
+* `Array.prototype.join(separator?: string): string`
+  * concatenating all of the elements in an array
+  * if nothing specified -> 콤마
+* `Array.prototype.reverse(): array`
+  * Reverse an array in place
+* `Array.prototype.slice(start?: number, end?: number): array`
   * This method **does not mutate** the original array
-  * It returns a shallow copy of a portion of an array into a new array object selected from start to end (end not included) where start and end represent the index of items in that array. 
-* `Array.prototype.splice()`
+  * It returns **a shallow copy of a portion of an array into a new array object** selected from start to end (end not included) where start and end represent the index of items in that array. 
+* `Array.prototype.splice(start: number, deleteCount: number, ...items: array): array;`
+  * remove `deleteCount` elements before index `start` and insert `...items`
   * This method **mutates** the original array
+  * ```javascript
+    let myFish = ['angel', 'clown', 'mandarin', 'sturgeon']
+    let removed = myFish.splice(2, 0, 'drum')
 
-# 03/28/2022
+    // myFish is ["angel", "clown", "drum", "mandarin", "sturgeon"]
+    // removed is [], no elements removed```
+  * ```javascript 
+    //Remove 1 element at index 3
+    let myFish = ['angel', 'clown', 'drum', 'mandarin', 'sturgeon']
+    let removed = myFish.splice(3, 1)
+
+    // myFish is ["angel", "clown", "drum", "sturgeon"]
+    // removed is ["mandarin"]s
+    ```
+
 
 ### Getting HTML DOM element
 
@@ -36,7 +51,7 @@
 ### 없는 Tag 만드는 법
 - `document.createElement(tag이름);`
   - 객체를 만들고
-- `Element.innerHTML = "<div></div>";`
+- `Element.innerHTML = "넣고싶은 내용, tag포함하는 경우도 있음";`
   - 내용을 채워넣고
 - `Element.appendChild(Element)`
   - 부모 Tag를 잡고 그 아래에 붙히기
