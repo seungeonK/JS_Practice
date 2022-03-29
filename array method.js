@@ -8,7 +8,7 @@
 {
     const fruits = ['apple', 'banana', 'orange'];
     const fruitsToString = fruits.join(' ')
-    console.log(fruitsToString);
+    console.log(fruitsToString); //apple banana orange
   }
   
   // Q2. make an array out of a string
@@ -49,37 +49,74 @@
   ];
   
   // Q5. find a student with the score 90
+  // find() functions returns the first element 
+  // that matches with the expression in the function.
+  // Even though there are multiple matching with the expression,
+  // It always returns the first one.
   {
       const studentNinety = students.find((student, index) => {
-          console.log(student, index);
           return student.score === 90;
       })
       console.log(studentNinety);
   }
   
   // Q6. make an array of enrolled students
+
+  //filter() returns an array of elements that meets the condition in callback function
   {
+    const enrolledStudents = students.filter((student, index) => {
+      return student.enrolled === true;
+    })
+
+    console.log(enrolledStudents);
   }
   
   // Q7. make an array containing only the students' scores
   // result should be: [45, 80, 90, 66, 88]
   {
+    const studentsScores = students.map((student, index) => student.score);
+    
+    console.log(`students score: ${studentsScores}`);
   }
   
   // Q8. check if there is a student with the score lower than 50
+
+  //Array.prototype.some() tests whether at least one element in the array passes the test
+  //implemented by the provided function(callback fn)
+
   {
+    const isLowerThan50 = students.some((student, index) => student.score < 50);
+    console.log(`Q8. Check if there is a student with the score lower than 50: ${isLowerThan50}`);
   }
   
   // Q9. compute students' average score
-  {
+  //The return value of the callback function is the accumulated result, 
+  //and is provided as an argument in the next call to the callback function.
+
+  //The first time that the callback is run there is no "return value of the previous calculation". If supplied, an initial value may be used in its place. 
+  //Otherwise array element 0 is used as the initial value and iteration starts from the next element (index 1 instead of index 0).
+  { 
+    let q9 = students.reduce((prevStudent, curStudent) => {
+      return (prevStudent+curStudent.score);
+    },0)
+    console.log(q9/students.length);
   }
   
   // Q10. make a string containing all the scores
   // result should be: '45, 80, 90, 66, 88'
   {
+    const q10 = students.map((student, index) => student.score).join();
+
+    console.log(q10);
   }
   
   // Bonus! do Q10 sorted in ascending order
   // result should be: '45, 66, 80, 88, 90'
   {
+    const bonus = students
+      .map((student) => student.score)
+      .sort()
+      .join();
+
+    console.log(bonus);
   }
